@@ -11,5 +11,5 @@ public class Player
     [Required] [MaxLength(100)]
     public string LastName { get; set; }
     [Required]
-    public DateTime BirthDate { get; set; }
+    public DateOnly BirthDate { get; set; } //
 }

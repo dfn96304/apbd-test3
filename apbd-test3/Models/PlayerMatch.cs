@@ -15,4 +15,7 @@ public class PlayerMatch
     public int MVPs { get; set; }
     [Required] [Precision(4,2)]
     public decimal Rating { get; set; }
+    
+    public Match Match { get; set; }
+    public Player Player { get; set; }
 }

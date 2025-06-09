@@ -33,8 +33,8 @@ public class DatabaseContext : DbContext
 
         modelBuilder.Entity<Player>().HasData(new List<Player>
         {
-            new Player(){ PlayerId = 1, FirstName = "A", LastName = "B"},
-            new Player(){ PlayerId = 2, FirstName = "C", LastName = "D"},
+            new Player(){ PlayerId = 1, FirstName = "A", LastName = "B", BirthDate = DateOnly.Parse("2001-01-01")},
+            new Player(){ PlayerId = 2, FirstName = "C", LastName = "D", BirthDate = DateOnly.Parse("2002-01-01")},
         });
 
         modelBuilder.Entity<Match>().HasData(new List<Match>

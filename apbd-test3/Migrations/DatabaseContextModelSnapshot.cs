@@ -109,8 +109,8 @@ namespace apbd_test3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerId"));
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -130,14 +130,14 @@ namespace apbd_test3.Migrations
                         new
                         {
                             PlayerId = 1,
-                            BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BirthDate = new DateOnly(2001, 1, 1),
                             FirstName = "A",
                             LastName = "B"
                         },
                         new
                         {
                             PlayerId = 2,
-                            BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BirthDate = new DateOnly(2002, 1, 1),
                             FirstName = "C",
                             LastName = "D"
                         });
@@ -159,6 +159,8 @@ namespace apbd_test3.Migrations
                         .HasColumnType("decimal(4,2)");
 
                     b.HasKey("MatchId", "PlayerId");
+
+                    b.HasIndex("PlayerId");
 
                     b.ToTable("PlayerMatches");
 
@@ -222,6 +224,25 @@ namespace apbd_test3.Migrations
                     b.Navigation("Map");
 
                     b.Navigation("Tournament");
+                });
+
+            modelBuilder.Entity("apbd_test3.Models.PlayerMatch", b =>
+                {
+                    b.HasOne("apbd_test3.Models.Match", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("apbd_test3.Models.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Player");
                 });
 #pragma warning restore 612, 618
         }
