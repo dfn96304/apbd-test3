@@ -12,7 +12,7 @@ using apbd_test3.Data;
 namespace apbd_test3.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250609160103_Init")]
+    [Migration("20250609161408_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -100,6 +100,16 @@ namespace apbd_test3.Migrations
                             MatchDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 2,
                             Team2Score = 1,
+                            TournamentId = 1
+                        },
+                        new
+                        {
+                            MatchId = 2,
+                            BestRating = 0m,
+                            MapId = 1,
+                            MatchDate = new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Team1Score = 1,
+                            Team2Score = 2,
                             TournamentId = 1
                         });
                 });

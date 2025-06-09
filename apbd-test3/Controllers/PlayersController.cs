@@ -38,9 +38,9 @@ public class PlayersController : ControllerBase
             await _dbService.NewPlayer(playerDto);
             return Created();
         }
-        catch (BadRequestException e)
+        catch (NotFoundException e)
         {
-            return BadRequest(e.Message);
+            return NotFound(e.Message);
         }
     }
 }

@@ -53,12 +53,14 @@ public class DbService : IDbService
                     BirthDate = playerDto.BirthDate,
                 }).Entity;
 
+                
+                
                 foreach (NewPlayerMatchDTO matchDto in playerDto.Matches)
                 {
                     var match = _context.Matches.FirstOrDefault(match => match.MatchId == matchDto.MatchId);
                     if (match == null)
                     {
-                        throw new BadRequestException("The match with the given id does not exist");
+                        throw new NotFoundException("The match with the given id does not exist");
                     }
                     
                     _context.PlayerMatches.Add(new PlayerMatch()
@@ -70,6 +72,12 @@ public class DbService : IDbService
                         Match = match,
                         Player = player,
                     });
+
+                    if (matchDto.Rating > match.BestRating)
+                    {
+                        match.BestRating = matchDto.Rating;
+                        _context.Matches.Update(match);
+                    }
                 }
                 
                 await _context.SaveChangesAsync();

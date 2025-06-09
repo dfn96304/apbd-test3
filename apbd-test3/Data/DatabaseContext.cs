@@ -40,6 +40,7 @@ public class DatabaseContext : DbContext
         modelBuilder.Entity<Match>().HasData(new List<Match>
         {
             new Match(){ MatchId = 1, TournamentId = 1, MapId = 1, MatchDate = DateTime.Parse("2025-01-01"), Team1Score = 2, Team2Score = 1 },
+            new Match(){ MatchId = 2, TournamentId = 1, MapId = 1, MatchDate = DateTime.Parse("2025-01-02"), Team1Score = 1, Team2Score = 2 }
         });
 
         modelBuilder.Entity<PlayerMatch>().HasData(new List<PlayerMatch>

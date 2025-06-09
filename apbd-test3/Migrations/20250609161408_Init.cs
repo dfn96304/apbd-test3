@@ -135,7 +135,11 @@ namespace apbd_test3.Migrations
             migrationBuilder.InsertData(
                 table: "Matches",
                 columns: new[] { "MatchId", "BestRating", "MapId", "MatchDate", "Team1Score", "Team2Score", "TournamentId" },
-                values: new object[] { 1, 0m, 1, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 0m, 1, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 1 },
+                    { 2, 0m, 1, new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "PlayerMatches",

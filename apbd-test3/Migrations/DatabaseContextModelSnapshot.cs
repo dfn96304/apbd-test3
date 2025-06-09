@@ -98,6 +98,16 @@ namespace apbd_test3.Migrations
                             Team1Score = 2,
                             Team2Score = 1,
                             TournamentId = 1
+                        },
+                        new
+                        {
+                            MatchId = 2,
+                            BestRating = 0m,
+                            MapId = 1,
+                            MatchDate = new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Team1Score = 1,
+                            Team2Score = 2,
+                            TournamentId = 1
                         });
                 });
 
