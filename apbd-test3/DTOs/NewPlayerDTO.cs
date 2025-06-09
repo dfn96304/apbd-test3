@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using apbd_test3.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace apbd_test3.DTOs;
 
