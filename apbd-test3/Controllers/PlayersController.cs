@@ -36,9 +36,9 @@ public class PlayersController : ControllerBase
         try
         {
             await _dbService.NewPlayer(playerDto);
-            return Created();
+            return Created("", playerDto);
         }
-        catch (NotFoundException e)
+        catch (BadRequestException e)
         {
             return NotFound(e.Message);
         }

@@ -52,15 +52,13 @@ public class DbService : IDbService
                     LastName = playerDto.LastName,
                     BirthDate = playerDto.BirthDate,
                 }).Entity;
-
-                
                 
                 foreach (NewPlayerMatchDTO matchDto in playerDto.Matches)
                 {
                     var match = _context.Matches.FirstOrDefault(match => match.MatchId == matchDto.MatchId);
                     if (match == null)
                     {
-                        throw new NotFoundException("The match with the given id does not exist");
+                        throw new BadRequestException("The match with the given id does not exist");
                     }
                     
                     _context.PlayerMatches.Add(new PlayerMatch()
