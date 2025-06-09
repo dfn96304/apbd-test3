@@ -40,7 +40,7 @@ public class PlayersController : ControllerBase
         }
         catch (BadRequestException e)
         {
-            return NotFound(e.Message);
+            return BadRequest(e.Message);
         }
     }
 }

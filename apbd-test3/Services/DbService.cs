@@ -35,7 +35,7 @@ public class DbService : IDbService
         }).ToList();
         
         if(player.Count == 0)
-            throw new NotFoundException();
+            throw new NotFoundException("The player with the given id was not found");
 
         return player[0];
     }
@@ -58,7 +58,7 @@ public class DbService : IDbService
                     var match = _context.Matches.FirstOrDefault(match => match.MatchId == matchDto.MatchId);
                     if (match == null)
                     {
-                        throw new BadRequestException("The match with the given id does not exist");
+                        throw new BadRequestException("The match with the given id was not found");
                     }
                     
                     _context.PlayerMatches.Add(new PlayerMatch()
