@@ -68,7 +68,7 @@ namespace apbd_test3.Migrations
                     MatchDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Team1Score = table.Column<int>(type: "int", nullable: false),
                     Team2Score = table.Column<int>(type: "int", nullable: false),
-                    BestRating = table.Column<decimal>(type: "decimal(4,2)", precision: 4, scale: 2, nullable: false)
+                    BestRating = table.Column<decimal>(type: "decimal(4,2)", precision: 4, scale: 2, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -137,8 +137,8 @@ namespace apbd_test3.Migrations
                 columns: new[] { "MatchId", "BestRating", "MapId", "MatchDate", "Team1Score", "Team2Score", "TournamentId" },
                 values: new object[,]
                 {
-                    { 1, 0m, 1, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 1 },
-                    { 2, 0m, 1, new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 1 }
+                    { 1, null, 1, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 1 },
+                    { 2, null, 1, new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 1 }
                 });
 
             migrationBuilder.InsertData(

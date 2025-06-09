@@ -71,7 +71,7 @@ public class DbService : IDbService
                         Player = player,
                     });
 
-                    if (matchDto.Rating > match.BestRating)
+                    if (match.BestRating == null || matchDto.Rating > match.BestRating)
                     {
                         match.BestRating = matchDto.Rating;
                         _context.Matches.Update(match);

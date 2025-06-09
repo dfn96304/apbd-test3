@@ -61,7 +61,7 @@ namespace apbd_test3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"));
 
-                    b.Property<decimal>("BestRating")
+                    b.Property<decimal?>("BestRating")
                         .HasPrecision(4, 2)
                         .HasColumnType("decimal(4,2)");
 
@@ -92,7 +92,6 @@ namespace apbd_test3.Migrations
                         new
                         {
                             MatchId = 1,
-                            BestRating = 0m,
                             MapId = 1,
                             MatchDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 2,
@@ -102,7 +101,6 @@ namespace apbd_test3.Migrations
                         new
                         {
                             MatchId = 2,
-                            BestRating = 0m,
                             MapId = 1,
                             MatchDate = new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 1,

@@ -19,7 +19,7 @@ public class Match
     [Required]
     public int Team2Score { get; set; }
     [Precision(4,2)]
-    public decimal BestRating { get; set; }
+    public decimal? BestRating { get; set; }
     
     public Tournament Tournament { get; set; }
     public Map Map { get; set; }

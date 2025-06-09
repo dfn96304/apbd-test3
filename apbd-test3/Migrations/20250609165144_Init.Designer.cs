@@ -12,7 +12,7 @@ using apbd_test3.Data;
 namespace apbd_test3.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250609161408_Init")]
+    [Migration("20250609165144_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -64,7 +64,7 @@ namespace apbd_test3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"));
 
-                    b.Property<decimal>("BestRating")
+                    b.Property<decimal?>("BestRating")
                         .HasPrecision(4, 2)
                         .HasColumnType("decimal(4,2)");
 
@@ -95,7 +95,6 @@ namespace apbd_test3.Migrations
                         new
                         {
                             MatchId = 1,
-                            BestRating = 0m,
                             MapId = 1,
                             MatchDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 2,
@@ -105,7 +104,6 @@ namespace apbd_test3.Migrations
                         new
                         {
                             MatchId = 2,
-                            BestRating = 0m,
                             MapId = 1,
                             MatchDate = new DateTime(2025, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 1,
